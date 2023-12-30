@@ -1,6 +1,7 @@
 import { getAllPostIds, getPostData } from "@/lib/post";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
+import postStyles from "@/styles/Post.module.css";
 
 type postDataType = {
   postData: {
@@ -12,7 +13,7 @@ type postDataType = {
 
 const Posts = ({ postData }: postDataType) => {
   return (
-    <div>
+    <div className={postStyles.container}>
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -37,7 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string);
+  const postData = await getPostData(params?.id as string);
 
   return {
     props: {

@@ -14,7 +14,7 @@ type allPostsDataType = {
 
 export default function Home({ allPostsData }: allPostsDataType) {
   return (
-    <div>
+    <div className={homeStyles.container}>
       <Head>
         <title>Librarian</title>
       </Head>
